@@ -1,24 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
 import './App.css';
+import axios from 'axios';
+import { Todo } from './model/todo';
 
-function App() {
+axios.defaults.baseURL = 'http://localhost:4000/api/';
+
+const App:React.FC = () => {
+  const [todoList,setTodoList] = useState<Todo[]>([]);
+  // get
+ useEffect(() => {
+  (async () => {
+    const response = await axios.get<Todo[]>('/todos');
+    setTodoList(response.data)
+  })()
+ })
+
+  const Todo = () => {
+  //  getTodoList();
+   return <div>TodoList</div>
+  }
+
+  // const getTodoList = async () => {
+  //   const newtodoList = await axios.get<Todo[]>('todos');
+  //   setTodoList(newtodoList.data);
+  // }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Todo />    
+      {todoList.map((todo:Todo) => {
+    return (
+    <div key={todo.id}>{todo.id}; {todo.title}; {todo.description}</div>
+      );
+    })}
     </div>
   );
 }
