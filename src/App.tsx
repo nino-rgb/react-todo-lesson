@@ -15,10 +15,25 @@ const App:React.FC = () => {
   })()
  })
 
+
+// POST
+
+
+
+
+
+//  delete
+const deleteTodo = (todo: Todo) => {
+  axios.delete(`/${todo.id}`);
+    console.log(todo.id);
+  }
+
+
   const Todo = () => {
   //  getTodoList();
    return <div>TodoList</div>
   }
+console.log(deleteTodo);
 
   // const getTodoList = async () => {
   //   const newtodoList = await axios.get<Todo[]>('todos');
@@ -35,6 +50,6 @@ const App:React.FC = () => {
     })}
     </div>
   );
-}
+};
 
 export default App;
