@@ -44,3 +44,33 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+
+// console.log(deleteTodo);
+
+  // const getTodoList = async () => {
+  //   const newtodoList = await axios.get<Todo[]>('todos');
+  //   setTodoList(newtodoList.data);
+  // }
+
+// POST
+
+
+// PUT
+// const PutTodo = () => {
+//   axios.post(`todo`, {
+//       isComplete: true, name: 'test'
+//   })
+//       .then(response => {
+//           ([Todo, response.data])
+//       })
+//       .catch(error => {
+//           console.log(error);
+//       });
+// }
+
+//  delete
+// const deleteTodo = (todo: Todo) => {
+//   axios.delete(`/${todo.id}`);
+//     console.log(todo.id);
+//   }
